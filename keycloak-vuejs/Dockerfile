@@ -11,7 +11,7 @@ ENV PATH=$PATH:$APP_HOME/.npm-global/bin
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
-# Install app dependencies
+# Install APP dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
@@ -21,17 +21,17 @@ RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 
-## used to check if DB is up
-ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.4.0/wait ./wait
-RUN chmod +x ./wait
+# add @vue-cli for vue-cli-service
+RUN npm install -g @vue/cli
 
-# Bundle app source
+# Bundle APP source
 #COPY . .
 COPY src ./src
-COPY config ./config
+#COPY config ./config
 COPY public ./public
-COPY .* ./
+#COPY .* ./
+COPY *.js ./
 
-EXPOSE 2080
+EXPOSE 8024
 
-CMD /wait && npm start
+CMD npm start

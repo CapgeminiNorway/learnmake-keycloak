@@ -1,43 +1,48 @@
  VueJS with KEYCLOAK  
 =====================  
 
-SpringBoot app using KEYCLOAK!    
+Vue.js app using KEYCLOAK!    
 
 
 ### Building & Running this App    
-_(MiP) Making-in-Progres..._  
-_..._   
-#### Prepare env-vars  
-_TODO: ..._  
-
-#### Run the App in localhost  
-_TODO: ..._
-
-
-## Project setup
-```
-yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+# Clone this repo and verify compile  
+  git clone GIT_REPO_URL   
+  cd path/to/keycloak-vuejs  
+  yarn  
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+# Run as App 
+  yarn serve
 
-### Run your tests
 ```
-yarn run test
-```
+Now it should be available via [http://localhost:8024](http://localhost:8024)    
+  
 
-### Lints and fixes files
-```
-yarn run lint
-```
+### Containerization with Docker  
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Building, publishing and running via _Docker_ and _Docker-Compose_:       
+```bash
+# set env vars for ease-of-use
+# NOTE! please just replace 'zeusbaba' with your user  
+$ export dockerhubUser=zeusbaba \
+  export appName=keycloak-vuejs \
+  export appVersion=1.0.0
+$ export dockerImage=${dockerhubUser}/${appName}:${appVersion}
+
+## using Docker!!!       
+# build a docker image  
+$ docker build \
+  -t ${dockerImage} \
+  --rm --no-cache .    
+$ docker images  	
+# (optional) publish the image to docker hub  
+$ docker push ${dockerImage}  
+
+# (optional) run the docker image locally    
+$ docker run \
+	-p 8024:8024 \
+	-e "NODE_ENV=development" \
+	${dockerImage}  
+```
+Now it should be available via [http://localhost:8024](http://localhost:8024)  
