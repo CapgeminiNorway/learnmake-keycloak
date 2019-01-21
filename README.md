@@ -32,11 +32,15 @@ $ docker-compose down
 Now you can access KeyCloak admin panel via [http://localhost:8081](http://localhost:8081)      
 default admin user+pass is inside [docker-compose.yaml](docker-compose.yaml)  
 
+After you login, you need to setup a Realm and Client! You can do so by following the first part of [baeldung-tutorial](https://www.baeldung.com/spring-boot-keycloak)*.   
+Client settings requires some extras, see [screenshot](assets/keycloak-client-settings.png) for example.    
 
-### Building example applications  
+Afterwards, you can use Reference Apps which are listed below.
+
+### Separately building & running Reference Apps  
 See list of reference implementations  
-- [KEYCLOAK using Spring Boot](keycloak-springboot)  
-- [KEYCLOAK using Node.js/Vue.js](keycloak-vuejs)  
+- [KEYCLOAK using Spring Boot](keycloak-springboot)    
+- [KEYCLOAK using Node.js/Vue.js](keycloak-vuejs)   
 - *more...MiP...*      
 
 
