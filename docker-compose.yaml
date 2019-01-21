@@ -1,0 +1,49 @@
+version: '3'
+
+networks:
+  keycloak-network:
+    driver: bridge
+
+services:
+
+  ## Keycloak instance using https://hub.docker.com/r/jboss/keycloak
+  keycloak:
+    image: 'jboss/keycloak'
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-local
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=adminpwd
+      #- KEYCLOAK_HOSTNAME=localhost
+      #- KEYCLOAK_HTTP_PORT=8080
+      #- KEYCLOAK_HTTPS_PORT=8443
+      - KEYCLOAK_LOGLEVEL=WARN
+      - ROOT_LOGLEVEL=INFO
+      # using custom DB
+      - DBVENDOR=postgres
+      - DB_ADDR=postgres-local
+      - DB_PORT=5432
+      - DB_DATABASE=keycloak
+      - DB_USER=keycloak
+      - DB_PASSWORD=postgrespwd
+    networks:
+      - keycloak-network
+    #volumes:
+    #  - ./docker-data-keycloak:/opt/jboss/keycloak
+
+  ## DB instance using https://hub.docker.com/r/bitnami/postgresql
+  postgres-local:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_DATABASE=keycloak
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=postgrespwd
+      #- ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - keycloak-network
+    volumes:
+      - ./docker-data-postgresql:/bitnami
