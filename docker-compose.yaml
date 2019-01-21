@@ -48,7 +48,7 @@ services:
     volumes:
       - ./docker-data-postgresql:/bitnami
 
-## NOTE: if you want to include Ref-APPs in docker-compose, see example below...
+# NOTE: if you want to include Ref-APPs in docker-compose, see example below...
   ## Reference APP using Vue.js
   #keycloak-vuejs:
   #  build: ./keycloak-vuejs
@@ -57,6 +57,17 @@ services:
   #    - "8024:8024"
   #  environment:
   #    - NODE_ENV=development
+  #  networks:
+  #    - keycloak-network
+  #  depends_on:
+  #    - keycloak
+
+  ## Reference APP using Spring-Boot
+  #keycloak-springboot:
+  #  build: ./keycloak-springboot
+  #  image: zeusbaba/keycloak-springboot:1.0.0
+  #  ports:
+  #    - "8022:8022"
   #  networks:
   #    - keycloak-network
   #  depends_on:

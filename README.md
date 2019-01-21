@@ -1,7 +1,7 @@
  LearnMake KEYCLOAK  
 ====================  
 
-baseline setup and example apps using [KEYCLOAK.org](https://www.keycloak.org)!    
+Baseline setup with reference-apps using [KEYCLOAK](https://www.keycloak.org)!      
 
 ## LEARN - MAKE - SHOW - SHARE   
 
@@ -11,8 +11,9 @@ In order to build and run this app you need to have a couple of things installed
 
 - The Docker Toolbox or native Docker, whatever you prefer. See [Docker](https://docs.docker.com) and [Docker-Compose](https://docs.docker.com/compose/)  
 - An IDE for the development, like [Atom](https://atom.io) or [IntelliJ](https://www.jetbrains.com/idea/)    
-- [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed, _see [package.json](package.json) for the required versions._    
-- Get familiar with [VueJS](https://vuejs.org/)._                    
+- [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed, _see [package.json](package.json) for the required versions._        
+- Get familiar with _[VueJS](https://vuejs.org/)._  
+- Get familiar with [Spring Boot](https://www.baeldung.com/spring-boot)                          
          
 
 ### KeyCloak instance with Docker    
