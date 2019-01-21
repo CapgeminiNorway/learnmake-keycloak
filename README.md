@@ -29,17 +29,14 @@ $ sudo chown 1001:1001 -R docker-data-*
 $ docker-compose down   
 ```
 `docker-compose up` gets Keycloak instance up and running in your local environment.    
-Now you can access KeyCloak admin panel via *http://localhost:8080*  
-default admin user+pass is inside [docker-compose.yaml](docker-compose.yaml) 
+Now you can access KeyCloak admin panel via [http://localhost:8081](http://localhost:8081)      
+default admin user+pass is inside [docker-compose.yaml](docker-compose.yaml)  
 
 
 ### Building example applications  
-_(MiP) Making-in-Progres..._  
-_..._   
-#### Prepare env-vars  
-_TODO: ..._  
-
-#### Run the App in localhost  
-_TODO: ..._
+See list of reference implementations  
+- [KEYCLOAK using Spring Boot](keycloak-springboot)  
+- [KEYCLOAK using Node.js/Vue.js](keycloak-vuejs)  
+- *more...MiP...*      
 
 
