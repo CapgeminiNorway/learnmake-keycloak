@@ -60,9 +60,9 @@ the resulting `keycloak.json` should yield:
 }
 ```
 
-NB! Client settings requires *Valid Redirect URIs* for each of the reference-app, see [screenshot](assets/keycloak-client-settings.png).        
+NB! Client settings requires *Valid Redirect URIs* for each of the reference-app, see ![](assets/keycloak-client-settings.png)   
 
-After you've done this, now you can use Reference Apps which are listed below.   
+After you've done all the config, now you can use Reference Apps which are listed below.   
 
 ### Separately building & running Reference Apps  
 See list of reference implementations  
