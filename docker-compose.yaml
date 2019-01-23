@@ -15,7 +15,7 @@ services:
       - postgres-local
     environment:
       - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=adminpwd
+      - KEYCLOAK_PASSWORD=admin
       #- KEYCLOAK_HOSTNAME=localhost
       #- KEYCLOAK_HTTP_PORT=8080
       #- KEYCLOAK_HTTPS_PORT=8443
@@ -48,7 +48,18 @@ services:
     volumes:
       - ./docker-data-postgresql:/bitnami
 
-# NOTE: if you want to include Ref-APPs in docker-compose, see example below...
+# NB! if you want to include Ref-APPs in docker-compose, see example below...
+  ## Reference APP using Spring-Boot
+  #keycloak-springboot:
+  #  build: ./keycloak-springboot
+  #  image: zeusbaba/keycloak-springboot:1.0.0
+  #  ports:
+  #    - "8022:8022"
+  #  networks:
+  #    - keycloak-network
+  #  depends_on:
+  #    - keycloak
+
   ## Reference APP using Vue.js
   #keycloak-vuejs:
   #  build: ./keycloak-vuejs
@@ -62,12 +73,12 @@ services:
   #  depends_on:
   #    - keycloak
 
-  ## Reference APP using Spring-Boot
+  ## Reference APP using Golang
   #keycloak-springboot:
-  #  build: ./keycloak-springboot
-  #  image: zeusbaba/keycloak-springboot:1.0.0
+  #  build: ./keycloak-golang
+  #  image: zeusbaba/keycloak-golang:1.0.0
   #  ports:
-  #    - "8022:8022"
+  #    - "8026:8026"
   #  networks:
   #    - keycloak-network
   #  depends_on:

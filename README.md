@@ -10,10 +10,10 @@ Baseline setup with reference-apps using [KEYCLOAK](https://www.keycloak.org)!
 In order to build and run this app you need to have a couple of things installed:  
 
 - The Docker Toolbox or native Docker, whatever you prefer. See [Docker](https://docs.docker.com) and [Docker-Compose](https://docs.docker.com/compose/)  
-- An IDE for the development, like [Atom](https://atom.io) or [IntelliJ](https://www.jetbrains.com/idea/)    
-- [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed, _see [package.json](package.json) for the required versions._        
-- Get familiar with _[VueJS](https://vuejs.org/)._  
-- Get familiar with [Spring Boot](https://www.baeldung.com/spring-boot)                          
+- *(for dev)* An IDE for the development, like [Atom](https://atom.io) or [IntelliJ](https://www.jetbrains.com/idea/)    
+- *(for dev)* [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed, _see [package.json](package.json) for the required versions._        
+- *(for dev)* Get familiar with _[VueJS](https://vuejs.org/)._  
+- *(for dev)* Get familiar with [Spring Boot](https://www.baeldung.com/spring-boot)                          
          
 
 ### KeyCloak instance with Docker    
@@ -31,17 +31,41 @@ $ docker-compose down
 ```
 `docker-compose up` gets Keycloak instance up and running in your local environment.    
 Now you can access KeyCloak admin panel via [http://localhost:8081](http://localhost:8081)      
-default admin user+pass is inside [docker-compose.yaml](docker-compose.yaml)  
+the default *admin username+passwd* is inside [docker-compose.yaml](docker-compose.yaml)    
 
-After you login, you need to setup a Realm and Client! You can do so by following the first part of [baeldung-tutorial](https://www.baeldung.com/spring-boot-keycloak)*.   
-Client settings requires some extras, see [screenshot](assets/keycloak-client-settings.png) for example.    
+After you login, you need to setup a Realm and Client!  
+To learn more about creating a realm/clients/users, see [https://www.keycloak.org/docs/latest/server_admin/index.html#admin-console](https://www.keycloak.org/docs/latest/server_admin/index.html#admin-console)  
+p.s. You can also reuse the first part of [baeldung-tutorial](https://www.baeldung.com/spring-boot-keycloak)*.       
+      
+Here is just an outline of what you need to do for running these examples:  
 
-Afterwards, you can use Reference Apps which are listed below.
+- create a realm named `KeycloakExampleApp`    
+- turn off the requirement of ssl for this realm *(realmsettings -> login -> require ssl -> none)*     
+- create a client named `login-app` with default Client ID `openid-connect` and *AccessType* as `public`. And also set *Valid Redirect URIs* as `http://localhost:8081/*` which is the base URI of keycloak server.                
+- create a *user* Role *(Roles -> add role)*    
+- create a user named `myuser` with password `mypass` *(Users -> add user)*. Make sure to activate, *Role Mapping* to `user`role.      
+
+the resulting `keycloak.json` should yield:  
+```json
+{
+  "realm": "KeycloakExampleApp",
+  "auth-server-url": "http://localhost:8081/auth",
+  "ssl-required": "none",
+  "resource": "login-app",
+  "public-client": true,
+  "confidential-port": 0
+}
+```
+
+NB! Client settings requires *Valid Redirect URIs* for each of the reference-app, see [screenshot](assets/keycloak-client-settings.png).        
+
+After you've done this, now you can use Reference Apps which are listed below.   
 
 ### Separately building & running Reference Apps  
 See list of reference implementations  
 - [KEYCLOAK using Spring Boot](keycloak-springboot)    
-- [KEYCLOAK using Node.js/Vue.js](keycloak-vuejs)   
+- [KEYCLOAK using Node.js/Vue.js](keycloak-vuejs)  
+- [KEYCLOAK using Golang](keycloak-golang)   
 - *more...MiP...*      
 
 
