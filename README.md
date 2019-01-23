@@ -34,6 +34,9 @@ Now you can access KeyCloak admin panel via [http://localhost:8081](http://local
 the default *admin username+passwd* is inside [docker-compose.yaml](docker-compose.yaml)    
 
 After you login, you need to setup a Realm and Client!  
+By default, *docker-compose* while starting also reimports default [config](config/) like realm, client and users
+
+If you still want to do this manually:  
 To learn more about creating a realm/clients/users, see [https://www.keycloak.org/docs/latest/server_admin/index.html#admin-console](https://www.keycloak.org/docs/latest/server_admin/index.html#admin-console)  
 p.s. You can also reuse the first part of [baeldung-tutorial](https://www.baeldung.com/spring-boot-keycloak)*.       
       
