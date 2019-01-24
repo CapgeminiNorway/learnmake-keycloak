@@ -16,7 +16,7 @@ In order to build and run this app you need to have a couple of things installed
 - *(for dev)* Get familiar with [Spring Boot](https://www.baeldung.com/spring-boot)                          
          
 
-### KeyCloak instance with Docker    
+### Keycloak instance with Docker    
 
 Building and running via _Docker_ and _Docker-Compose_:         
 ```bash   
@@ -30,7 +30,7 @@ $ sudo chown 1001:1001 -R docker-data-*
 $ docker-compose down   
 ```
 `docker-compose up` gets Keycloak instance up and running in your local environment.    
-Now you can access KeyCloak admin panel via [http://localhost:8081](http://localhost:8081)      
+Now you can access Keycloak admin panel via [http://localhost:8081](http://localhost:8081)      
 the default *admin username+passwd* is inside [docker-compose.yaml](docker-compose.yaml)    
 
 After you login, you need to setup a Realm and Client!  
