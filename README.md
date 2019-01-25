@@ -1,7 +1,8 @@
  LearnMake KEYCLOAK  
 ====================  
 
-Baseline setup with reference-apps using [KEYCLOAK](https://www.keycloak.org)!      
+Baseline setup with reference-apps using [KEYCLOAK](https://www.keycloak.org)!  
+See also [medium-article](https://link.medium.com/lRMDMXgNJT)        
 
 ## LEARN - MAKE - SHOW - SHARE   
 
